@@ -22,11 +22,19 @@ const (
 
 func lissajous(out io.Writer) {
 	const (
+<<<<<<< HEAD
 		cycles  = 10    // number of complete x oscillator revolutions
 		res     = 0.001 // angular resolution
 		size    = 1000  // image canvas covers [-size..+size]
 		nframes = 100   // number of animation frames
 		delay   = 2     // delay between frames in 10ms units
+=======
+		cycles  = 5     // number of complete x oscillator revolutions
+		res     = 0.001 // angular resolution
+		size    = 1000  // image canvas covers [-size..+size]
+		nframes = 64    // number of animation frames
+		delay   = 8     // delay between frames in 10ms units
+>>>>>>> 47b820b61545fc1c232d3a3e115e46219dd601a6
 	)
 	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
 	// this is also a composite literal - in this case a struct
