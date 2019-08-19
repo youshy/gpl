@@ -126,3 +126,18 @@ v := 1
 incr(&v)                // v is now 2
 fmt.Println(incr(&v))   // "3" (and v is 3 now)
 ```
+
+## New
+
+Variable can be also created by using keyword `new`:
+
+```golang
+p := new(int)      // p, of type *int, points to an unnamed int variable
+fmt.Println(*p)    // "0" - because the variable has been initialized with zero value
+*p = 2             // sets the unnamed int to 2
+fmt.Println(*p)    // "2"
+```
+
+## Variables lifetime
+
+Basically - every package-level variable, and every local variable of each currently active function, can potentially be the start or root of a path to the variable in question.
