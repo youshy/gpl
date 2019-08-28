@@ -15,6 +15,9 @@ import (
 )
 
 func main() {
+	Dedup()
+}
+func examples() {
 	map1 := mapMake()
 	fmt.Println(map1)
 	map2 := mapLiteral()
@@ -58,6 +61,9 @@ func main() {
 	fmt.Println(map4)
 
 	sortAndPrint(map4)
+
+	result := equal(map[string]int{"A": 0}, map[string]int{"B": 42})
+	fmt.Println(result)
 }
 
 // mapMake
@@ -103,4 +109,18 @@ func sortAndPrint(ages map[string]int) {
 	for _, name := range names {
 		fmt.Printf("%s\t%d\n", name, ages[name])
 	}
+}
+
+// comparing two maps if they contain the same k/v
+// only legal comparison for maps it with nil
+func equal(x, y map[string]int) bool {
+	if len(x) != len(y) {
+		return false
+	}
+	for k, xv := range x {
+		if yv, ok := y[k]; !ok || yv != xv {
+			return false
+		}
+	}
+	return true
 }
