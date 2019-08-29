@@ -3,6 +3,7 @@ package links
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"golang.org/x/net/html"
 )
@@ -34,7 +35,9 @@ func Extract(url string) ([]string, error) {
 				if err != nil {
 					continue // ignores bad URLs
 				}
-				links = append(links, link.String())
+				if strings.Contains(link.String(), url) {
+					links = append(links, link.String())
+				}
 			}
 		}
 	}

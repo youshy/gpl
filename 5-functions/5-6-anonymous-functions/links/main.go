@@ -30,7 +30,7 @@ func breadthFirst(f func(item string) []string, worklist []string) {
 }
 
 func crawl(url string) []string {
-	fmt.Println(url)
+	fmt.Printf("---\n%s\n---", url)
 	list, err := links.Extract(url)
 	if err != nil {
 		log.Print(err)
